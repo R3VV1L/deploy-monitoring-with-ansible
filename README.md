@@ -4,10 +4,10 @@
 ## Установка
 Для установки и настройки мониторинга с помощью Ansible выполните следующие шаги:
 * __Установите Ansible:__ Убедитесь, что на вашей машине установлен Ansible. Для этого выполните команду:
-`sudo apt install ansible  # Для Ubuntu/Debian`
-`sudo yum install ansible  # Для CentOS/RHEL`
+`sudo apt install ansible  # Для Ubuntu/Debian`  
+`sudo yum install ansible  # Для CentOS/RHEL`  
 * __Настройте инвентарный файл:__ Создайте файл `hosts.ini`, в котором укажите хосты, на которых будет производиться деплой.
 * __Скопируйте конфигурацию:__ Убедитесь, что файл `docker-compose.yml` для Prometheus доступен по пути `/etc/prometheus/docker-compose.yml` на целевых хостах.
-* __Запустите плейбук Ansible:__ Выполните команду для запуска плейбука, который обновит конфигурацию и запустит контейнеры:
-`ansible-playbook -i hosts.yml deploy-monitoring.yml`
+* __Запустите плейбук Ansible:__ Выполните команду для запуска плейбука, который обновит конфигурацию и запустит контейнеры:  
+`ansible-playbook -i hosts.yml deploy-monitoring.yml`  
 * __Проверьте доступность сервисов:__ После успешного выполнения плейбука, вы сможете получить доступ к интерфейсу Prometheus по адресу `http://<IP_ADDRESS>:9090` и Grafana по адресу `http://<IP_ADDRESS>:3000`.
