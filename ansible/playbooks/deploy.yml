@@ -1,0 +1,15 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Обновить docker-compose.yml для мониторинга
+      copy:
+        src: /etc/prometheus/docker-compose.yml
+        dest: /etc/prometheus/docker-compose.yml
+      notify:
+        - Запустить docker-compose
+
+  handlers:
+    - name: Запустить docker-compose
+      community.docker.docker_compose:
+        project_src: /etc/prometheus/
+        state: present

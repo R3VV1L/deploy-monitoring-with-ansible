@@ -1,0 +1,9 @@
+- name: Обновить docker-compose.yml для мониторинга
+  copy:
+    src: /etc/prometheus/docker-compose.yml
+    dest: /etc/prometheus/docker-compose.yml
+
+- name: Запустить docker-compose
+  community.docker.docker_compose:
+    project_src: /etc/prometheus/
+    state: present
